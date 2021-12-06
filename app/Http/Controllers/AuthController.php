@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,8 +13,8 @@ class AuthController extends Controller
     public function indexR()
     {
         return view('auth.regis', [
-            "title" => "Login",
-            "active" => "login"
+            "title" => "Regis",
+            "active" => "regis"
         ]);
     }
     public function regis(Request $request)
@@ -21,11 +22,12 @@ class AuthController extends Controller
         $create = $request->validate([
             "name" => "required|min:2",
             "email" => "required|email:dns",
-            "password" => "required|min:3"
-
+            "password" => "required|min:3",
+            "address" => "required|min:10",
         ]);
-        $create['password'] = Hash::clean($create['password']);
+        $create['password'] = Hash::make($create['password']);
         User::create($create);
+        return redirect()->intended('/login');
     }
 
     public function indexL()
