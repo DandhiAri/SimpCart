@@ -9,12 +9,15 @@
     @yield('head')
     <style>
 
+
     </style>
     @yield('css')
 </head>
 
 <body>
-    @yield('konten')
+    <section>
+        @yield('konten')
+    </section>
 </body>
 @yield('js')
 

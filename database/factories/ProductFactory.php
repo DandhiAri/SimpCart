@@ -13,13 +13,14 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $faker = \Faker\Factory::create();
-        $faker->addProvider(new \Bezhanov\Faker\Provider\Species($faker));
         return [
-            'name' => $faker->plant,
-            'detail' => $this->faker->sentence(mt_rand(10, 15)),
+            'name' => $this->faker->randomElement(['Tulip', 'Rose Flower', 'Orchid']),
+            'slug' => $this->faker->slug(),
+            'deskripsi' => collect($this->faker->paragraphs(mt_rand(5, 10)))
+                ->map(function ($p) {
+                    return "<p>$p</p>";
+                })->implode(''),
             'harga' => $this->faker->randomNumber(5, 8, true),
-            'deskrip' => $this->faker->sentence(mt_rand(15, 20)),
         ];
     }
 }

@@ -1,0 +1,10 @@
+.bg-gd1 {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.bg-gd2 {
+    background-color: rgba(15, 78, 24, 0.678);
+}
+.flex {
+    display: flex;
+    flex: 1;
+}

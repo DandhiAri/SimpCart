@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="" href="/images/logo.svg">
+    <link rel="stylesheet" href="tempt.css">
     <title>Kios Bunga | {{ $title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -169,55 +170,8 @@
 <body>
     {{-- ========================================HEADER================================== --}}
     <section>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-gd py-4">
-            <h1 class="navbar-brand ml-3 @if ($active == 'home') active @endif" href="/">
-                <span style="color:blue">KIOS</span>
-                <span style="color:green">BUNGA</span>
-            </h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav flex justify-content-end">
-                    <li class="nav-item px-4 @if ($active == 'home') active @endif">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item px-4 @if ($active == 'about') active @endif">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle  @if ($active == 'shop') active @endif" href="#" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Shop
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/shop">Shop</a>
-                            <a class="dropdown-item" href="/cart">Cart</a>
-                            {{-- <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a> --}}
-                        </div>
-                    </li>
-                    <li class="nav-item px-4 @if ($active == 'kontak') active @endif">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle @if ($active == 'login') active @endif" href="#" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Login
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/login">Login</a>
-                            <a class="dropdown-item" href="/regis">Regis</a>
-                            {{-- <div class="dropdown-divider"></div> --}}
-                        </div>
-                    </li>
-                    {{-- <li class="nav-item px-4 @if ($active == 'login') active @endif">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li> --}}
-                </ul>
-            </div>
-        </nav>
+
+        @include('layout.komponen.navbar')
         {{-- ========================================HEROBANNER================================== --}}
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">

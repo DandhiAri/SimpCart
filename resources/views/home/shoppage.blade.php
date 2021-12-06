@@ -46,8 +46,8 @@
     @section('content')
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Shop</li>
             </ol>
         </nav>
         <div class="container">
@@ -253,62 +253,41 @@
 
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="card mb-4" style="width: 15rem;">
-                                <img class="card-img-top" src="https://source.unsplash.com/200x200?tulip"
-                                    alt=" Card image cap">
-                                <div class="card-body text-center">
-                                    <h4 class="card-text">
-                                        <a href="/produk" style="color:rgb(38, 151, 34)">
-                                            Tulip Semboro
-                                        </a>
-                                    </h4>
-                                    <p class="card-text">Rp.20.000</p>
+                        @foreach ($products as $product)
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="card mb-4" style="width: 15rem;">
+                                    <img class="card-img-top"
+                                        src="https://source.unsplash.com/200x200?{{ $product->name }}"
+                                        alt=" Card image cap">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-text">
+                                            <a href="/shop/{{ $product->slug }}" style="color:rgb(38, 151, 34)">
+                                                {{ $product->name }}
+                                            </a>
+                                        </h4>
+                                        <p class="card-text">Rp.{{ $product->harga }}</p>
+                                    </div>
+                                    <div class="flex justify-content-center">
+                                        <form action="{{ url('cart', $product->id) }}" method="post">
+                                            @csrf
+                                            <input type="number" name="quantity" value="1" min="1" class="form-control"
+                                                style="width:87px">
+                                            <input class="btn btn-success" type="submit" value="Add Cart">
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endforeach
+                        <div class="container">
+                            <div class="row">
+                                <div class="flex justify-content-center">
+                                    {{ $products->links() }}
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="card mb-4" style="width: 15rem;">
-                                <img class="card-img-top" src="https://source.unsplash.com/200x200?Rose Flower"
-                                    alt=" Card image cap">
-                                <div class="card-body text-center">
-                                    <h4 class="card-text">
-                                        <a href="/produk" style="color:rgb(38, 151, 34)">
-                                            Mawar Semboro
-                                        </a>
-                                    </h4>
-                                    <p class="card-text">Rp.20.000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="card mb-4" style="width: 15rem;">
-                                <img class="card-img-top" src="https://source.unsplash.com/200x200?tulip"
-                                    alt=" Card image cap">
-                                <div class="card-body text-center">
-                                    <h4 class="card-text">
-                                        <a href="/produk" style="color:rgb(38, 151, 34)">
-                                            Tulip Semboro
-                                        </a>
-                                    </h4>
-                                    <p class="card-text">Rp.20.000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="card mb-4" style="width: 15rem;">
-                                <img class="card-img-top" src="https://source.unsplash.com/200x200?tulip"
-                                    alt=" Card image cap">
-                                <div class="card-body text-center">
-                                    <h4 class="card-text">
-                                        <a href="/produk" style="color:rgb(38, 151, 34)">
-                                            Tulip Semboro
-                                        </a>
-                                    </h4>
-                                    <p class="card-text">Rp.20.000</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -323,6 +302,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+
 </body>
 
 

@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +18,22 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-
+//===============Homepage====================//
 Route::get('/', function () {
     return view('dashboard', [
         'title' => 'Dashboard',
         'active' => 'home',
     ]);
 });
-Route::get('/shop', function () {
-    return view('home.shoppage', [
-        'title' => 'Shop',
-        'active' => 'shop',
-    ]);
-});
+Route::get('/shop', [ProductController::class, 'shop']);
+Route::get('/shop/{product:slug}', [ProductController::class, 'show']);
+
+// Route::get('/shop', function () {
+//     return view('home.shoppage', [
+//         'title' => 'Shop',
+//         'active' => 'shop',
+//     ]);
+// });
 Route::get('/about', function () {
     return view('home.aboutpage', [
         'title' => 'About',
@@ -40,13 +47,38 @@ Route::get('/slide', function () {
     return view('testing.slide');
 });
 
+Route::get('/invoice', function () {
+    return view('admin.invoice');
+});
+
+Route::get('print-pdf/{type}', [TransController::class, 'invoice']);
+
+Route::get('/cart', [CartController::class, 'index']);
+Route::post('/cart/{id}', [CartController::class, 'addcart']);
+Route::get('/delcart/{id}', [CartController::class, 'deletecart']);
+
+Route::post('/order', [CartController::class, 'confirm']);
+Route::get('/updatetrans/{id}', [TransController::class, 'updatetrans']);
+Route::get('/transecs/print', [TransController::class, 'print']);
+Route::get('/transecs/printpdf', [TransController::class, 'printpdf']);
+
 //=====================auth======================//
 
+Route::get('/regis', [AuthController::class, 'indexR']);
+Route::post('/regis', [AuthController::class, 'regis']);
+
 Route::get('/login', [AuthController::class, 'indexL']);
-Route::post('/login', [AuthController::class, 'authenticate']);
+Route::post('/login', [AuthController::class, 'login']);
 
+Route::get('/logout', [AuthController::class, 'logout']);
 
-//==========================================//
+//====================admin======================//
 Route::get('/admin', function () {
     return view('layout.backlayout');
 });
+
+Route::resources([
+    '/users' => UserController::class,
+    '/products' => ProductController::class,
+    '/transecs' => TransController::class,
+]);
