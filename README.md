@@ -11,14 +11,14 @@
 
 Project ini default-nya memakai Laravel Valet. Laravel Valet digunakan untuk memudahkan pengguna untuk mengakses atau melihat project user di browser. Laravel Valet mengubah route xampp/localhost(https://http://127.0.0.1:8000/) menjadi https://simpcart.test
 
-Cara untuk mengubah Laravel Valet ke normal Laravel:
+## Tutorial Localhost xampp:
 
-```bash
-composer
-```
-
-Pindah File Project ke
-
+-   Extract file dan pindahkan ke C:/xampp/htdocs
+-   Duplikat file .env.example dan Rename menjadi .env
+-   Ubah nama database DB_DATABASE=simpcart menjadi DB_DATABASE=kbunga di dalam .env file
+-   Open ([terminal gitbash](https://git-scm.com/downloads)/terminal VSCode/Command Prompt(cmd)) arahkan ke file project tersebut
+-   Ketik [composer](https://getcomposer.org/) install di ([terminal gitbash](https://git-scm.com/downloads)/terminal VSCode/Command Prompt(cmd))
+-   Ketik php artisan key:generate di ([terminal gitbash](https://git-scm.com/downloads)/terminal VSCode/Command Prompt(cmd))
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
