@@ -33,8 +33,8 @@ class AuthController extends Controller
     public function indexL()
     {
         return view('auth.login', [
-            "title" => "Regis",
-            "active" => "regis"
+            "title" => "Login",
+            "active" => "Login"
         ]);
     }
     public function login(Request $request)

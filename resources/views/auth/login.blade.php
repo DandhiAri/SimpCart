@@ -54,10 +54,12 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Login" class="btn btn-success">
                     <br />
                 </form>
-                {{-- <a href="#"><p class="small">Forgot your password?</p></a> --}}
+                <a href="/regis">
+                    <p>Tidak punya akun?</p>
+                </a>
             </div>
         </div>
     @endsection

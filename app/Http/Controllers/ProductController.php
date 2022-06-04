@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,17 +16,31 @@ class ProductController extends Controller
     public function shop()
     {
         $products = Product::latest()->paginate(9);
-        return view('home.shoppage', compact('products'), [
+        $categories = Category::all();
+        return view('home.shoppage', compact('products', 'categories'), [
             "title" => "Products",
             "active" => "shop",
         ])
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
+    public function home()
+    {
+        $products = Product::latest()->paginate(4);
+        return view('dashboard', compact('products'), [
+            "title" => "WELCOME",
+            "active" => "home",
+        ])
+            ->with('i', (request()->input('page', 1) - 1) * 4);
+    }
+
+    //==============================RESOURCE==========================//
+
     public function index()
     {
         $products = Product::latest()->paginate(10);
-        return view('admin.Products', compact('products'), [
+        $categories = Category::all();
+        return view('admin.Products', compact('products', 'categories'), [
             "title" => "Products",
             "active" => "shop",
         ])
@@ -73,7 +88,22 @@ class ProductController extends Controller
         return view('home.product', [
             "title" => "Shop Detail",
             "active" => "shop",
-            "product" => $product
+            "product" => $product,
+        ]);
+    }
+    public function cat()
+    {
+        return view('categories', [
+            'title' => "",
+            'catgories' => Category::all(),
+        ]);
+    }
+    public function catslug(Category $category)
+    {
+        return view('home.shoppage', [
+            'title' => $category->name,
+            // 'product' => $category->products,
+            'products' => $category->product->load('product')
         ]);
     }
 

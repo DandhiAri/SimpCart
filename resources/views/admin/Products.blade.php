@@ -4,31 +4,20 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Responsive Hover Table</h3>
-
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="card-title"><a href="add" class="btn btn-success">Add Data</a></h3>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                <div class="card-body overflow-auto table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>name</th>
-                                <th>email</th>
-                                <th>role</th>
-                                <th>Email Verify date</th>
-                                <th>Token</th>
+                                <th>Name</th>
+                                <th>Slug</th>
+                                <th>Category</th>
+                                <th>Deskripsi</th>
+                                <th>Foto</th>
+                                <th>Price</th>
                                 <th>Create Date</th>
                                 <th>Update Date</th>
 
@@ -37,13 +26,16 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    {{-- <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->role }}</td>
-                                    <td>{{ $item->email_verified_at }}</td>
-                                    <td>{{ $item->remember_token }}</td>
-                                    <td>{{ $item->create_at }}</td>
-                                    <td>{{ $item->updated_at }}</td> --}}
+                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->slug }}</td>
+                                    <td>{{ $product->category->name }}</td>
+                                    <td>{!! $product->deskripsi !!}</td>
+                                    <td>{{ $product->foto }}</td>
+                                    <td>{{ $product->harga }}</td>
+                                    <td>{{ $product->created_at }}</td>
+                                    <td>{{ $product->updated_at }}</td>
+
 
                                 </tr>
                             @endforeach

@@ -16,10 +16,12 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->string('address')->nullable();
             $table->string('product_name')->nullable();
             $table->string('quantity')->nullable();
             $table->string('price')->nullable();
+            $table->timestamps();
             //     $table->
             //     SELECT name,
             //     price*quantity  AS total_price
@@ -36,7 +38,7 @@ class CreateCartsTable extends Migration
             // $table->double('diskon', 12, 2)->default(0);
             // $table->double('total', 12, 2)->default(0);
             // $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+
         });
     }
 

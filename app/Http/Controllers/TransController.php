@@ -25,6 +25,16 @@ class TransController extends Controller
         return view('admin.transec', compact('transecs'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
+    public function findex()
+    {
+        $transecs = Transec::latest()->paginate(10);
+
+        return view('home.transaction', compact('transecs'), [
+            "title" => "transaksi",
+            "active" => "transaksi"
+        ])
+            ->with('i', (request()->input('page', 1) - 1) * 10);
+    }
     public function updatetrans()
     {
         $trans = Trans::find('id');

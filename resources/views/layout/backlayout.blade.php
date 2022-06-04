@@ -194,6 +194,12 @@ to get the desired effect
                               </a>
                           </li>
                           <li class="nav-item">
+                              <a href="/categories" class="nav-link">
+                                  <i class="fas fa-circle nav-icon"></i>
+                                  <p>Category</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
                               <a href="/products" class="nav-link">
                                   <i class="fas fa-circle nav-icon"></i>
                                   <p>Product</p>
@@ -205,6 +211,7 @@ to get the desired effect
                                   <p>Transaction</p>
                               </a>
                           </li>
+
 
                           {{-- <li class="nav-header">MULTI LEVEL EXAMPLE</li>
                           <li class="nav-item">

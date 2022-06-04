@@ -15,12 +15,19 @@ class CreateTransecsTable extends Migration
     {
         Schema::create('transecs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->string('address')->nullable();
+            $table->string('province')->nullable();
+            $table->string('notes')->nullable();
             $table->string('product_name')->nullable();
             $table->integer('quantity')->nullable();
             $table->integer('price')->nullable();
             $table->integer('total')->nullable();
+            $table->string('payment')->nullable();
+            $table->string('ccname')->nullable();
+            $table->integer('ccnumber')->nullable();
+            $table->integer('ccexpiration')->nullable();
+            $table->integer('cccvv')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
             // $table->string('slug');

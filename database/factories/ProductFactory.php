@@ -16,6 +16,7 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->randomElement(['Tulip', 'Rose Flower', 'Orchid']),
             'slug' => $this->faker->slug(),
+            'category_id' => $this->faker->numberBetween(1, 4),
             'deskripsi' => collect($this->faker->paragraphs(mt_rand(5, 10)))
                 ->map(function ($p) {
                     return "<p>$p</p>";

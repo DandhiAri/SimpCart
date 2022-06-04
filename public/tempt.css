@@ -1,4 +1,4 @@
-.bg-gd1 {
+.bg-nav1 {
     background-color: rgba(0, 0, 0, 0.4);
 }
 .bg-gd2 {
@@ -7,4 +7,172 @@
 .flex {
     display: flex;
     flex: 1;
+}
+
+
+.flex {
+    display: flex;
+    flex: 1;
+}
+
+.bg-gd2 {
+    background-color: rgba(15, 78, 24, 0.678);
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.navbar {
+    box-shadow: 10px;
+}
+
+body {
+    background-color: #f2f4f5;
+    z-index: 10;
+}
+
+.tembus {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dst {
+    margin-left: 10ch;
+    margin-right: 10ch;
+}
+
+.carddesc {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+}
+
+.bg-image {
+    background-image: ()
+}
+
+.bg-gd {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.flex {
+    flex: 1;
+}
+
+.ft-dark {
+    color: #000;
+}
+
+.notip {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.lmao {
+    justify-content: center;
+}
+
+.header-area {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+
+.card-text {
+    color: gray;
+}
+.text-center{
+    text-align:center;
+}
+.carousel-item::before {
+    background-color: rgba(0, 0, 0, 0.37);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.sc-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sc-child {
+    flex-grow: 1;
+    margin: 2vmin;
+}
+
+.sc-img {
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.sc-child:last-child {
+    flex-grow: 10;
+    height: 300px;
+}
+
+.icon-logo {
+    border-radius: 50%;
+}
+
+.icon-nav {
+    width: 10px;
+    height: 10px;
+}
+
+.icon-footer {
+    width: 10em;
+    height: 10em;
+}
+
+.footer-area {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.footer-area::after {
+    background-color: rgba(4, 43, 15, 0.8);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+
+}
+
+.carousel-caption {
+    top: 42%;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.grid-collumn {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.more {
+    font-family: "Arial Narrow Bold", arial, georgia, sans-serif;
+    font-size: 20px;
+    font-display: bold;
+    color: green;
+}
+
+.more-img {
+    width: 100px;
+    height: 30px;
 }
